@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>練習用ぺージ</title>
@@ -10,28 +11,32 @@
     <link rel="stylesheet" href="">
     <link rel="shortcut icon" href="">
     <script type="text/javascript">
-timerID = setInterval('clock()',500); //0.5秒毎にclock()を実行
+        //0.5秒毎にclock()を実行
+        timerID = setInterval('clock()', 500);
+        function clock() {
+            document.getElementById("view_clock").innerHTML = getTarget();
+        }
+        function getTarget() {
+	    // 応用情報技術者試験-試験日
+            var target = new Date('2018/10/21 00:00');
+            var now = new Date();
+            var df = target - now;
 
-function clock() {
-	document.getElementById("view_clock").innerHTML = getNow();
-}
+            let year = df / 1000 / 60 / 60 / 24 / 365;
+            let month = df / 1000 / 60 / 60 / 24 / (365 / 12);
+            let day = df / 1000 / 60 / 60 / 24;
+            let hour = df / 1000 / 60 / 60;
+            let min = df / 1000 / 60;
+            let sec = df / 1000;
 
-function getNow() {
-	var now = new Date();
-	var year = now.getFullYear();
-	var mon = now.getMonth()+1; //１を足すこと
-	var day = now.getDate();
-	var hour = now.getHours();
-	var min = now.getMinutes();
-	var sec = now.getSeconds();
+            let result = year + "年" + mon + "月" + day + "日" + hour + "時" + min + "分" + sec + "秒";
+            return result;
+        }
+    </script>
+</head>
 
-	//出力用
-	var s = year + "年" + mon + "月" + day + "日" + hour + "時" + min + "分" + sec + "秒"; 
-	return s;
-}
-</script>
-  </head>
-  <body>
+<body>
     <span id="view_clock"></span>
-  </body>
+</body>
+
 </html>
