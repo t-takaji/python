@@ -30,7 +30,7 @@
                     if (day) timer += '<span class="day">' + day + '</span>日';
                     if (hour) timer += '<span class="hour">' + hour + '</span>時間';
                     timer += '<span class="min">' + this.addZero(min) + '</span>分<span class="sec">' + this.addZero(sec) + '</span>秒';
-                    this.elem.innerHTML = '応用情報技術者試験　まで残り　' + timer;
+                    this.elem.innerHTML = 'TOEIC Listening & Reading Testまで残り　' + timer;
                     tid = setTimeout(function () { me.countDown(); }, 100);
                 }
             }, addZero: function (num) { return ('0' + num).slice(-2); }
@@ -41,7 +41,7 @@
             timer.countDown();
         }
         window.onload = function () {
-            CDT('2018/10/21 00:00:00', 'CDT1');
+            CDT('2018/12/09 00:00:00', 'CDT1');
         }
     </script>
 </head>
