@@ -5,49 +5,43 @@
     <meta charset="utf-8">
     <title>練習用ぺージ</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
-    <link rel="shortcut icon" href="">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
-        function CountdownTimer(elm, tl) {
-            this.initialize.apply(this, arguments);
-        }
-        CountdownTimer.prototype = {
-            initialize: function (elm, tl) {
-                this.elem = document.getElementById(elm);
-                this.tl = tl;
-            }, countDown: function () {
+        $(function () {
+            let testDay = new Date('2019/03/10 13:00:00');
+
+            setInterval(function () {
                 var timer = '';
                 var today = new Date();
-                var day = Math.floor((this.tl - today) / (24 * 60 * 60 * 1000));
-                var hour = Math.floor(((this.tl - today) % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
-                var min = Math.floor(((this.tl - today) % (24 * 60 * 60 * 1000)) / (60 * 1000)) % 60;
-                var sec = Math.floor(((this.tl - today) % (24 * 60 * 60 * 1000)) / 1000) % 60 % 60;
-                var me = this;
-
-                if ((this.tl - today) > 0) {
+                var day = Math.floor((testDay - today) / (24 * 60 * 60 * 1000));
+                var hour = Math.floor(((testDay - today) % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+                var min = Math.floor(((testDay - today) % (24 * 60 * 60 * 1000)) / (60 * 1000)) % 60;
+                var sec = Math.floor(((testDay - today) % (24 * 60 * 60 * 1000)) / 1000) % 60 % 60;
+                if ((testDay - today) > 0) {
                     if (day) timer += '<span class="day">' + day + '</span>日';
                     if (hour) timer += '<span class="hour">' + hour + '</span>時間';
-                    timer += '<span class="min">' + this.addZero(min) + '</span>分<span class="sec">' + this.addZero(sec) + '</span>秒';
-                    this.elem.innerHTML = 'TOEIC Listening & Reading Testまで残り　' + timer;
-                    tid = setTimeout(function () { me.countDown(); }, 100);
+                    timer += '<span class="min">' + addZero(min) + '</span>分<span class="sec">' + addZero(sec) + '</span>秒';
+                    $('#toTheTest').html(timer);
                 }
-            }, addZero: function (num) { return ('0' + num).slice(-2); }
-        }
-        function CDT(d, e) {
-            var tl = new Date(d);
-            var timer = new CountdownTimer(e, tl);
-            timer.countDown();
-        }
-        window.onload = function () {
-            CDT('2018/12/09 00:00:00', 'CDT1');
+            }, 1000);
+        });
+        function addZero(num) {
+            return ('0' + num).slice(-2);
         }
     </script>
 </head>
 
 <body>
-    <span id="CDT1"></span>
+    TOEIC Listening & Reading Test（第238回）まで残り
+    <span id="toTheTest"></span>
+
+    <h3>TODO</h3>
+    <input type="checkbox" id="check1" />&nbsp;&nbsp;<input type="text" id="todo1" />
+    <br/>
+    <input type="checkbox" id="check2" />&nbsp;&nbsp;<input type="text" id="todo2" />
+    <br/>
+    <input type="checkbox" id="check3" />&nbsp;&nbsp;<input type="text" id="todo3" />
+    <br/>
 </body>
 
 </html>
