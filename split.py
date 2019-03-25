@@ -9,16 +9,16 @@ whileで入力ファイルを順に読み込み、1行ずつ出力ファイル�
 
 # ファイル名は任意だが、出力ファイルに関しては、%dを含むこと
 # ※採番して出力するため
-input_file_name = "hoge.csv"
-output_file_name_template = "split_%d.csv"
+input_file_name = "t_GoodsVisitor20190307_171507.csv"
+output_file_name = "split_%d.csv"
 
 # １ファイルあたりの行数
-max_lines = 1000
+max_lines = 10000
 
 # 初期処理
 line_no = 1
 numbering = 1
-output_file = open(output_file_name_template % numbering, "w")
+output_file = open(output_file_name % numbering, "w")
 input_file = open(input_file_name)
 line = input_file.readline()
 
@@ -27,7 +27,7 @@ while line:
         output_file.close()
         numbering += 1
         line_no = 1
-        output_file = open(output_file_name_template % numbering, "w")
+        output_file = open(output_file_name % numbering, "w")
     output_file.write(line)
     line_no += 1
     line = input_file.readline()
