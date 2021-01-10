@@ -1,4 +1,16 @@
-# repository
-▼TLSv1.2 資料
+# Python作業メモ
 
-https://www.baeldung.com/java-7-tls-v12
+## .py → .exe化
+### 前提
+pyinstallerのインストールが必要なので下記コマンドを実行。
+
+`pip install pyinstaller`  
+
+※pipのバージョン20.3.3欲しいので足りない場合は、バージョンアップを行う。  
+`pip install --upgrade pip`  
+
+### 実行コマンド
+`pyinstaller hello.py --onefile`  
+
+実行すると、buildとdistというフォルダが作成される。  
+distフォルダ内にhello.exeがあることが確認できる。  
