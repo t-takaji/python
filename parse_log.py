@@ -11,6 +11,8 @@ grep_target = '2021-01-27 00:00'
 with open(input_path, mode='r', encoding='utf-8') as f:
     lines = f.readlines()
     GREP_TARGET = [line for line in lines if grep_target in line]
+   #not in で含まないでGrepできる
+   #GREP_TARGET = [line for line in lines if grep_target not in line]
 
 # ファイル出力
 with open(output_path, mode='w', encoding='utf-8') as f:
