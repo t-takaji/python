@@ -1,5 +1,3 @@
-import sys, re
-
 # 入出力のパス
 input_path = './test.log'
 output_path = './result.txt'
